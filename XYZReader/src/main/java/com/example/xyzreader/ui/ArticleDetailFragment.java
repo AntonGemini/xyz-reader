@@ -261,7 +261,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
                                 updateStatusBar();
-                                scheduleStartPostponedTransition(mPhotoView);
+
                             }
                         }
 
@@ -318,6 +318,7 @@ public class ArticleDetailFragment extends Fragment implements
         }
 
         bindViews();
+        scheduleStartPostponedTransition(mPhotoView);
     }
 
     @Override

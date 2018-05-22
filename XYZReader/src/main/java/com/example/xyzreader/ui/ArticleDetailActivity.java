@@ -40,6 +40,7 @@ public class ArticleDetailActivity extends ActionBarActivity
     private View mUpButtonContainer;
     private View mUpButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -183,4 +184,6 @@ public class ArticleDetailActivity extends ActionBarActivity
             return (mCursor != null) ? mCursor.getCount() : 0;
         }
     }
+
+
 }

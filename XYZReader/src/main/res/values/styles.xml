@@ -19,6 +19,7 @@
 
     <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowContentTransitions">true</item>
+        <item name="android:actionBarSize">@dimen/action_bar_size</item>
     </style>
 
     <style name="Theme.Bacon.Detail">

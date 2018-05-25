@@ -219,7 +219,7 @@ public class ArticleDetailFragment extends Fragment implements
         //TextView bylineView = (TextView) mRootView.findViewById(R.id.article_byline);
         //bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.article_body);
-
+        TextView titleView = (TextView) mRootView.findViewById(R.id.book_title);
 
         bodyView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "Rosario-Regular.ttf"));
 
@@ -230,9 +230,20 @@ public class ArticleDetailFragment extends Fragment implements
             mRootView.setAlpha(0);
             mRootView.setVisibility(View.VISIBLE);
             mRootView.animate().alpha(1);
-            toolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
-            //titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+
+            String byline = null;
             Date publishedDate = parsePublishedDate();
+            if (!publishedDate.before(START_OF_EPOCH.getTime())) {
+                byline = " by " + mCursor.getString(ArticleLoader.Query.AUTHOR);
+            } else {
+                byline = " by " + mCursor.getString(ArticleLoader.Query.AUTHOR);
+            }
+
+            final String title = mCursor.getString(ArticleLoader.Query.TITLE);
+            titleView.setText(title + "\n" + byline);
+            //toolbar.setTitle(mCursor.getString(ArticleLoader.Query.TITLE));
+            //titleView.setText(mCursor.getString(ArticleLoader.Query.TITLE));
+            //Date publishedDate = parsePublishedDate();
             if (!publishedDate.before(START_OF_EPOCH.getTime())) {
 //                bylineView.setText(Html.fromHtml(
 //                        DateUtils.getRelativeTimeSpanString(

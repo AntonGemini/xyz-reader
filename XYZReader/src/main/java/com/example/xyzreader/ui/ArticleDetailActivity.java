@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -89,12 +90,13 @@ public class ArticleDetailActivity extends ActionBarActivity
         mUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onSupportNavigateUp();
+                supportFinishAfterTransition();
             }
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mUpButtonContainer.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
+                @RequiresApi(api = Build.VERSION_CODES.KITKAT_WATCH)
                 @Override
                 public WindowInsets onApplyWindowInsets(View view, WindowInsets windowInsets) {
                     view.onApplyWindowInsets(windowInsets);
@@ -112,6 +114,7 @@ public class ArticleDetailActivity extends ActionBarActivity
                 mSelectedItemId = mStartId;
             }
         }
+
     }
 
     @Override
@@ -148,7 +151,6 @@ public class ArticleDetailActivity extends ActionBarActivity
 
     public void onUpButtonFloorChanged(long itemId, ArticleDetailFragment fragment) {
         if (itemId == mSelectedItemId) {
-            //mSelectedItemUpButtonFloor = fragment.getUpButtonFloor();
             updateUpButtonPosition();
         }
     }
@@ -166,11 +168,6 @@ public class ArticleDetailActivity extends ActionBarActivity
         @Override
         public void setPrimaryItem(ViewGroup container, int position, Object object) {
             super.setPrimaryItem(container, position, object);
-            ArticleDetailFragment fragment = (ArticleDetailFragment) object;
-            if (fragment != null) {
-                //mSelectedItemUpButtonFloor = fragment.getUpButtonFloor();
-                updateUpButtonPosition();
-            }
         }
 
         @Override

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Bacon.Detail" parent="@style/Theme.Bacon">
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/detail_body_text_size</item>
+    </style>
+</resources>

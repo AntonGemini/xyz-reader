@@ -6,6 +6,7 @@
 
 
 
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/toolbar_container"
         android:layout_width="match_parent"
@@ -46,18 +47,37 @@
     </android.support.design.widget.AppBarLayout>
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:nestedScrollingEnabled="true"
+
+        <ProgressBar
+            android:elevation="10dp"
+            android:id="@+id/progressBar"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+
+    <LinearLayout
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:scrollbarStyle="outsideOverlay"
-        android:paddingTop="@dimen/main_list_top_padding"
-        android:paddingLeft="@dimen/list_side_margin"
-        android:paddingRight="@dimen/list_side_margin"
-        android:paddingBottom="@dimen/main_list_top_padding" />
+        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:nestedScrollingEnabled="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay"
+            android:paddingTop="@dimen/main_list_top_padding"
+            android:paddingLeft="@dimen/list_side_margin"
+            android:paddingRight="@dimen/list_side_margin"
+            android:paddingBottom="@dimen/main_list_top_padding" />
+    </LinearLayout>
+
 
 
 </android.support.design.widget.CoordinatorLayout>
